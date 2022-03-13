@@ -1,0 +1,33 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+
+    <h1>Store</h1>
+    <a href='{% url "homepage" %}'> <button class="btn btn-primary">Go back to Home </button></a><br>
+    <br>
+    <ul>
+        <table class="center table table-dark">
+                <tr>
+                    <th>Category</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Price (CAD)</th>
+                    <th>Quantity</th>
+                    <th>Sku</th>
+                    <th>Picture</th>    
+                </tr>
+            {% for product in object_list %}
+                <tr>
+                    <td>{{ product.category }}</td>
+                    <td>{{ product.title }}</td>
+                    <td>{{ product.description }}</td>
+                    <td>{{ product.price }}</td>
+                    <td>{{ product.quantity }}</td>
+                    <td>{{ product.sku }}</td>
+                    <td><img src = "{{ product.picture.url }}" class="images" /></td>
+                </tr>
+            {% endfor %}
+        </table>
+    </ul>
+
+{% endblock %}

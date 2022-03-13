@@ -1,0 +1,14 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+    
+<h1>Delete Product</h1>
+<form method="post">
+    {% csrf_token %}
+    Are you sure you want to delete this product:
+    <em><strong>{{ product.name }} </strong></em><br/>
+    <input type="submit" value="Yes, Delete it" class="btn btn-warning"/>
+</form> 
+<a href="{% url 'products_list' %}"><button class="btn btn-danger"> No, please go back </button></a> 
+
+{% endblock %}

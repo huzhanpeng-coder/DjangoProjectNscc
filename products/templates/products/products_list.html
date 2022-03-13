@@ -1,0 +1,34 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+    
+    <h1>Products</h1>
+    
+    <a href='{% url "homepage" %}'> <button class="btn btn-primary">Go back to Home </button></a><br><br>
+    
+    <a href='{% url "product_create" %}'><button class="btn btn-secondary"> Add new product </button></a><br><br>
+    <table class="center table thead-dark">
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Sku</th>
+            <th>Picture</th>
+            <th></th>
+        </tr>
+        {% for product in object_list %}
+        <tr>
+            <td>{{ product.category }}</td>
+            <td>{{ product.title }}</td>
+            <td>{{ product.description }}</td>
+            <td>{{ product.price }}</td>
+            <td>{{ product.quantity }}</td>
+            <td>{{ product.sku }}</td>
+            <td><img src = "{{ product.picture.url }}" class="images" /></td>
+            <td><a href='{% url "product_edit" product.id %}'> <button class="btn btn-primary">Edit </button></a>
+            <a href='{% url "product_delete" product.id %}'> <button class="btn btn-danger">Delete </button></a></td>
+        </tr><br>
+        {% endfor %}
+    </table>        
+{% endblock %}

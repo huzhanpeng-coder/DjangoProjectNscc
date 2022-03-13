@@ -1,0 +1,10 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+    <h1>Django Store</h1>
+    <a href='{% url "products_list" %}'> <button class="btn btn-danger">Manage Products </button></a><br><br>
+    <a href='{% url "categories_list" %}'> <button class="btn btn-danger">Manage Categories </button></a><br><br>
+    <a href='{% url "public_store" %}'> <button class="btn btn-primary">Check Store </button></a><br><br>
+
+{% endblock %}
+            

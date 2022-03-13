@@ -1,0 +1,14 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+    
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit" />
+</form><br>    
+
+<a href='{% url "categories_list" %}'> <button class="btn btn-danger">Cancel </button></a><br>  
+
+
+{% endblock %}
